@@ -11,9 +11,9 @@ except ImportError:
 
 setup(
     name='CRC-ITU',
-    version='0.1-alpha',
+    version='0.1a1',
     author_email="ak64th@gmail.com",
-    description="A crc-itu implementation with optional optimization extension",
+    description="A crc-itu implementation with optional cython extension",
     long_description=io.open('README.rst', 'r', encoding='utf-8').read(),
     license='Apache 2.0',
     zip_safe=False,
