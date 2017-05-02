@@ -1,0 +1,1 @@
+A crc-itu implementation with optional optimization extension
