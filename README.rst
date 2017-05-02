@@ -1,1 +1,5 @@
-A crc-itu implementation with optional optimization extension
+CRC-ITU |Build Status|
+======================
+
+.. |Build Status| image:: https://travis-ci.org/ak64th/CRC-ITU.svg?branch=master
+   :target: https://travis-ci.org/ak64th/CRC-ITU
