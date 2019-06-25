@@ -11,7 +11,7 @@ except ImportError:
 
 setup(
     name='CRC-ITU',
-    version='0.1a1',
+    version='0.2',
     url='https://github.com/ak64th/CRC-ITU',
     author='Elmer Yu',
     author_email='ak64th@gmail.com',
@@ -32,7 +32,7 @@ setup(
         'Programming Language :: Python',
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
     ],
 )
