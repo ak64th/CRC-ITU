@@ -11,7 +11,7 @@ except ImportError:
 
 setup(
     name='CRC-ITU',
-    version='0.3.0',
+    version='0.3.1',
     url='https://github.com/ak64th/CRC-ITU',
     author='Elmer Yu',
     author_email='ak64th@gmail.com',
