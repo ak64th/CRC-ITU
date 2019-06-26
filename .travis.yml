@@ -1,28 +1,42 @@
 language: python
 cache: pip
 matrix:
-    include:
-        - python: 2.7
-          env: TOXENV=flake8
-        - python: 2.7
-          env: TOXENV=py27
-        - python: 2.7
-          env: TOXENV=py27_cython
-        - python: 3.5
-          env: TOXENV=py35
-        - python: 3.5
-          env: TOXENV=py35_cython
-        - python: 3.6
-          env: TOXENV=py36
-        - python: 3.6
-          env: TOXENV=py36_cython
+  include:
+  - python: 3.6
+    env: TOXENV=flake8
+  - python: 2.7
+    env: TOXENV=py27
+  - python: 2.7
+    env: TOXENV=py27_cython
+  - python: 3.5
+    env: TOXENV=py35
+  - python: 3.5
+    env: TOXENV=py35_cython
+  - python: 3.6
+    env: TOXENV=py36
+  - python: 3.6
+    env: TOXENV=py36_cython
+  - python: 3.7
+    env: TOXENV=py37
+  - python: 3.7
+    env: TOXENV=py37_cython
 before_install:
-  - pip install pip -U
-  - pip install coveralls
+- pip install pip -U
+- pip install coveralls
 install:
-  - pip install tox
+- pip install tox
 script:
-  - tox
+- tox
 after_success:
-  - coverage combine .coverage_data
-  - coveralls
+- coverage combine .coverage_data
+- coveralls
+deploy:
+  provider: pypi
+  user: ak64th
+  distributions: sdist bdist_wheel
+  skip_existing: true
+  on:
+    tags: true
+    condition: "$TOXENV == *cython"
+  password:
+    secure: nBIPRJudbQjWdfa2q2SYaVaw1q6t/bW0Yymcgsqn9o7TihqOinnpYb0PuH3lTmImSQ2tz5ELOEn8Xpe7eWiG0cguBIR5eKI3fZTUeK4/VM2ppa0Njz2tqSA2/EDm/JMEjJY1OSycKx0Q/nvX+aV7qSpCtfkEYHg3YPX3xFe5VX3XUXCwrQMjnWXoxK1ZQfT/u8j15b1bInnCwAMsLGB2RLq6VFKi6WF6N64JLdNIpveXHC9rPG/j0YTFfkgJgl9ePKDNgW9iH9kv5mqv+tWXoT29fH5Cp+6VMk16yjqvWFOq2ZpqN+Q7rXcoY3TX6lAPwmtOVtBXYfJM8upzgGDRnastB25aNR0pGTme8vmj1/O5UgSzOQl6gNJ+iLu3Zbj0XX6+vxkAjw3SHDfagXrcOfOEKYmU+35AEwroMEXyOg7VSHC1TLjQawuDPzIHLB5xo/VLMcmcY+MpiLOT1ncKd/pkqfgUzsy9LJhxQeVce1g/zVJP9FEzTqRAJpNPTRYMVPF6KYZx7UyFqX0YEwuVL5r1zi9BTWVExGmoS6bOLk3Jm986F1bJA/uH0qjhk5hUJYNcP1mdnRxAZrOBtpur29+Qx8XbFPHlmaeIvzuVoCDkZ11p0iMdEwtFcJvaOxvcBqbSZiMrRrCeMz1fR1mEcYLBgs4O11hZ0t/YcjDPRp0=
